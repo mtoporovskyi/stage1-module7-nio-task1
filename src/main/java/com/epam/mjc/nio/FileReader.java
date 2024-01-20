@@ -24,9 +24,9 @@ public class FileReader {
                 fileChannel.read(buffer);
             }
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.println("File is not found: " + e);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("The problem while reading the file: " + e);
         }
 
         return this.generateProfile(this.parseDataFromFile(content));
