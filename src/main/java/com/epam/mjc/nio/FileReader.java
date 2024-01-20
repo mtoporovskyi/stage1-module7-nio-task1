@@ -1,7 +1,6 @@
 package com.epam.mjc.nio;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
@@ -23,10 +22,8 @@ public class FileReader {
                 buffer.clear();
                 fileChannel.read(buffer);
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("File is not found: " + e);
         } catch (IOException e) {
-            System.out.println("The problem while reading the file: " + e);
+            e.printStackTrace();
         }
 
         return this.generateProfile(this.parseDataFromFile(content));
